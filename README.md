@@ -1,2 +1,2 @@
 # rn_meal_app
-The Nextgen meal app Learning purpuse
+The Nextgen meal app Learning purpose
