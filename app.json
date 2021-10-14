@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "rn_meal_app",
+    "slug": "rn_meal_app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "rn_meal_app"
+}
