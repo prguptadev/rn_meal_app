@@ -46,12 +46,14 @@ const CategoryScreen = (cprops) => {
   };
 
   return (
-    <FlatList
-      keyExtractor={(item, index) => item.id} //no need before 4 react just for reff
-      numColumns={2}
-      data={CATEGORIES}
-      renderItem={renderGridItem}
-    />
+    <View>
+      <FlatList
+        keyExtractor={(item, index) => item.id} //no need before 4 react just for reff
+        numColumns={2}
+        data={CATEGORIES}
+        renderItem={renderGridItem}
+      />
+    </View>
     // <View style={cstyles.screen}>
     //   <Text>This is Category Screen</Text>
     //   <Button

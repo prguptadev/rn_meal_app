@@ -51,7 +51,7 @@ const MealsNavigator = createStackNavigator(
             : MyColors.iosPrimarycolor,
       },
       headerTintColor: Platform.OS === "android" ? "blue" : "black",
-      headerTitle: "A screen", // default title will be overwritten if not assign . ,,// second top priority for title other wise for screen mention title will wins
+      // headerTitle: "A screen", // default title will be overwritten if not assign . ,,// second top priority for title other wise for screen mention title will wins
     },
   }
 );
