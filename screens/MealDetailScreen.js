@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, ScrollView, StyleSheet, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  StyleSheet,
+  FlatList,
+} from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
@@ -12,21 +19,27 @@ const MealDetailScreen = (mdprops) => {
   //console.log(mealisss.title);
   const rendermealDetails = (itemData) => {
     return (
-      <MealDetails title={itemData.item.title} steps={itemData.item.steps} />
+      <MealDetails
+        title={itemData.item.title}
+        steps={itemData.item.steps}
+        duration={itemData.item.duration}
+        complexity={itemData.item.complexity}
+        affordability={itemData.item.affordability}
+        imageuri={itemData.item.imageUrl}
+        ingredients={itemData.item.ingredients}
+      />
     );
   };
 
   return (
-    <ScrollView>
-      <View style={mdstyles.screen}>
-        <FlatList
-          keyExtractor={(item, index) => item.id}
-          data={mealDetails}
-          renderItem={rendermealDetails}
-        />
-        {/* <Text>{mealisss}</Text> */}
-      </View>
-    </ScrollView>
+    <View style={mdstyles.screen}>
+      <FlatList
+        keyExtractor={(item, index) => item.id}
+        data={mealDetails}
+        renderItem={rendermealDetails}
+      />
+      {/* <Text>{mealisss}</Text> */}
+    </View>
     // <View style={mdstyles.screen}>
     //   <Text>This is Meal Details Screen</Text>
     //   <Text>{mealDetails.title}</Text>
@@ -58,7 +71,7 @@ const mdstyles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 });
