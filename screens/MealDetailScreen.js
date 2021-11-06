@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, ScrollView, StyleSheet, FlatList } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
@@ -17,14 +17,16 @@ const MealDetailScreen = (mdprops) => {
   };
 
   return (
-    <View style={mdstyles.screen}>
-      <FlatList
-        keyExtractor={(item, index) => item.id}
-        data={mealDetails}
-        renderItem={rendermealDetails}
-      />
-      {/* <Text>{mealisss}</Text> */}
-    </View>
+    <ScrollView>
+      <View style={mdstyles.screen}>
+        <FlatList
+          keyExtractor={(item, index) => item.id}
+          data={mealDetails}
+          renderItem={rendermealDetails}
+        />
+        {/* <Text>{mealisss}</Text> */}
+      </View>
+    </ScrollView>
     // <View style={mdstyles.screen}>
     //   <Text>This is Meal Details Screen</Text>
     //   <Text>{mealDetails.title}</Text>

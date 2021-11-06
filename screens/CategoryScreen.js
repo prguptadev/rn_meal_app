@@ -9,6 +9,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { CATEGORIES } from "../data/dummy-data";
+import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import HeaderButtonss from "../components/HeaderButtonss";
 import MyColors from "../constants/MyColors";
 import CategoryGridTiles from "../components/CategoryGridTiles";
 const CategoryScreen = (cprops) => {
@@ -68,16 +70,29 @@ const CategoryScreen = (cprops) => {
 
 export default CategoryScreen;
 
-CategoryScreen.navigationOptions = {
-  headerTitle: "Meal Category",
-  // headerStyle: {
-  //   backgroundColor:
-  //     Platform.OS === "android"
-  //       ? MyColors.primaryScreen
-  //       : MyColors.iosPrimarycolor,
-  // },
-  // headerTintColor: Platform.OS === "android" ? "blue" : "black",
-  //// header style repeated every time for every screen rather than , keep it in meal naivagtor
+CategoryScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: "Meal Category",
+    headerLeft: () => (
+      <HeaderButtons HeaderButtonComponent={HeaderButtonss}>
+        <Item
+          title="Menu"
+          iconName="ios-menu"
+          onPress={() => {
+            navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    ),
+    // headerStyle: {
+    //   backgroundColor:
+    //     Platform.OS === "android"
+    //       ? MyColors.primaryScreen
+    //       : MyColors.iosPrimarycolor,
+    // },
+    // headerTintColor: Platform.OS === "android" ? "blue" : "black",
+    //// header style repeated every time for every screen rather than , keep it in meal naivagtor
+  };
 };
 const cstyles = StyleSheet.create({
   screen: {
