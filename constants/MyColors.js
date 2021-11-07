@@ -4,4 +4,5 @@ export default {
   iconcolor: "#f54242",
   tabmealcolor: "#f457f8",
   tabfavcolor: "#360f",
+  Switchcolor: "#4C1FDE",
 };
