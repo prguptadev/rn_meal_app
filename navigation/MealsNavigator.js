@@ -160,7 +160,7 @@ const MainsNavigator = createDrawerNavigator(
     contentOptions: {
       activeTintColor: MyColors.iconcolor,
       labelStyle: {
-        //fontFamily: "my-open-sans",
+        // fontFamily: "my-open-sans",
       },
     },
   }

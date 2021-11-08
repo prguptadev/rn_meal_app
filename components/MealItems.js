@@ -45,7 +45,7 @@ const mstyles = StyleSheet.create({
     paddingHorizontal: 12,
   },
   title: {
-    //fontFamily: "my-open-sans-bold",
+    fontFamily: "my-open-sans-bold",
     fontSize: 20,
     color: "white",
     //textAlign: "center",
