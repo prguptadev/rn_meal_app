@@ -1,22 +1,26 @@
 import React from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  Image,
-  StyleSheet,
-  FlatList,
-} from "react-native";
-import { MEALS } from "../data/dummy-data";
+import { View, StyleSheet, FlatList } from "react-native";
+//import { MEALS } from "../data/dummy-data";
+// using store
+import { useSelector } from "react-redux";
 import MealDetails from "../components/MealDetails";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButtonss from "../components/HeaderButtonss";
 
 const MealDetailScreen = (mdprops) => {
+  const availableMeals = useSelector((state) => state.meals.meals);
   const mealId = mdprops.navigation.getParam("mealId");
   //const mealisss = MEALS.find((mid) => mid.id === mealId);
-  const mealDetails = MEALS.filter((mealid) => mealid.id === mealId);
+  //MEALS replaced by availableMeals
+  const mealDetails = availableMeals.filter((mealid) => mealid.id === mealId);
   //console.log(mealisss.title);
+
+  // useEffect(() => {
+  //   mdprops.navigation.setParams({ mealTitle: mealDetails.id });
+  // }, [mealDetails]);
+
+  //or better sennd from past sceeens
+
   const rendermealDetails = (itemData) => {
     return (
       <MealDetails
@@ -50,10 +54,12 @@ const MealDetailScreen = (mdprops) => {
 export default MealDetailScreen;
 
 MealDetailScreen.navigationOptions = (navigatorData) => {
-  const mealId = navigatorData.navigation.getParam("mealId");
-  const mealDetail = MEALS.find((mid) => mid.id === mealId);
+  // const mealId = navigatorData.navigation.getParam("mealId");
+  // const mealDetail = MEALS.find((mid) => mid.id === mealId);
+  const mealsttiles = navigatorData.navigation.getParam("mealTitle");
+
   return {
-    headerTitle: mealDetail.title, // hae to remove from navigator header title , which is on top priority
+    headerTitle: mealsttiles, // hae to remove from navigator header title , which is on top priority
     // headerRight: <Text>Fav!</Text>,// without nav header button package can be used but lot of wok req
     headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButtonss}>

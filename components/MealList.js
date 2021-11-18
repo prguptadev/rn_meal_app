@@ -15,6 +15,7 @@ const MealList = (mlprops) => {
         onSelectMeal={() =>
           mlprops.navigation.navigate("MealDetail", {
             mealId: itemData.item.id,
+            mealTitle: itemData.item.title,
           })
         }
       />

@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  FlatList,
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  Platform,
-  TouchableOpacity,
-  SafeAreaView,
-} from "react-native";
+import { FlatList, View, Text, StyleSheet, SafeAreaView } from "react-native";
 import { CATEGORIES } from "../data/dummy-data";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import HeaderButtonss from "../components/HeaderButtonss";
