@@ -8,7 +8,8 @@ import MealsNavigator from "./navigation/MealsNavigator";
 import { enableScreens } from "react-native-screens";
 
 //useScreens();
-enableScreens();
+enableScreens(); //additional performce to use this and provide device based based
+// behined seens unlock sceens , provide betetr performce
 
 const fetchFonts = () => {
   Font.loadAsync({

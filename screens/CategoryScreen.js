@@ -7,6 +7,7 @@ import {
   Button,
   Platform,
   TouchableOpacity,
+  SafeAreaView,
 } from "react-native";
 import { CATEGORIES } from "../data/dummy-data";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
@@ -48,14 +49,16 @@ const CategoryScreen = (cprops) => {
   };
 
   return (
-    <View>
-      <FlatList
-        keyExtractor={(item, index) => item.id} //no need before 4 react just for reff
-        numColumns={2}
-        data={CATEGORIES}
-        renderItem={renderGridItem}
-      />
-    </View>
+    <SafeAreaView>
+      <View>
+        <FlatList
+          keyExtractor={(item, index) => item.id} //no need before 4 react just for reff
+          numColumns={2}
+          data={CATEGORIES}
+          renderItem={renderGridItem}
+        />
+      </View>
+    </SafeAreaView>
     // <View style={cstyles.screen}>
     //   <Text>This is Category Screen</Text>
     //   <Button

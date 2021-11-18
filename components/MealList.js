@@ -1,5 +1,6 @@
 import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-navigation";
 import MealItems from "../components/MealItems";
 
 const MealList = (mlprops) => {

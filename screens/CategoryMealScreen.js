@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, SafeAreaView, FlatList } from "react-native";
 import { CATEGORIES, MEALS } from "../data/dummy-data";
 import MealList from "../components/MealList";
 const CategoryMealScreen = (cmprops) => {
