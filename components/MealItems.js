@@ -6,33 +6,36 @@ import {
   Text,
   TouchableOpacity,
   ImageBackground,
+  SafeAreaView,
 } from "react-native";
 
 const MealItems = (mprops) => {
   return (
-    <View style={mstyles.mealItem}>
-      <TouchableOpacity onPress={mprops.onSelectMeal}>
-        <View>
-          <View style={{ ...mstyles.mealrows, ...mstyles.mealHeader }}>
-            <ImageBackground
-              source={{ uri: mprops.image }}
-              style={mstyles.bgimage}
-            >
-              <View style={mstyles.titleConstainer}>
-                <Text style={mstyles.title} numberOfLines={1}>
-                  {mprops.title}
-                </Text>
-              </View>
-            </ImageBackground>
+    <SafeAreaView>
+      <View style={mstyles.mealItem}>
+        <TouchableOpacity onPress={mprops.onSelectMeal}>
+          <View>
+            <View style={{ ...mstyles.mealrows, ...mstyles.mealHeader }}>
+              <ImageBackground
+                source={{ uri: mprops.image }}
+                style={mstyles.bgimage}
+              >
+                <View style={mstyles.titleConstainer}>
+                  <Text style={mstyles.title} numberOfLines={1}>
+                    {mprops.title}
+                  </Text>
+                </View>
+              </ImageBackground>
+            </View>
+            <View style={{ ...mstyles.mealrows, ...mstyles.mealDetails }}>
+              <Text>{mprops.duration}minutes</Text>
+              <Text>{mprops.complexity.toUpperCase()}</Text>
+              <Text>{mprops.affordability.toUpperCase()}</Text>
+            </View>
           </View>
-          <View style={{ ...mstyles.mealrows, ...mstyles.mealDetails }}>
-            <Text>{mprops.duration}minutes</Text>
-            <Text>{mprops.complexity.toUpperCase()}</Text>
-            <Text>{mprops.affordability.toUpperCase()}</Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-    </View>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 

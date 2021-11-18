@@ -1,5 +1,12 @@
 import React from "react";
-import { Text, View, ScrollView, Image, StyleSheet } from "react-native";
+import {
+  Text,
+  View,
+  ScrollView,
+  Image,
+  StyleSheet,
+  SafeAreaView,
+} from "react-native";
 
 const ListItem = (props) => {
   return (
@@ -11,29 +18,31 @@ const ListItem = (props) => {
 
 const MealDetails = (props) => {
   return (
-    <ScrollView>
-      <Image source={{ uri: props.imageuri }} style={mmstyle.image} />
+    <SafeAreaView>
+      <ScrollView>
+        <Image source={{ uri: props.imageuri }} style={mmstyle.image} />
 
-      <View style={mmstyle.details}>
-        <Text>{props.duration}minutes</Text>
-        <Text>{props.complexity.toUpperCase()}</Text>
-        <Text>{props.affordability.toUpperCase()}</Text>
-      </View>
+        <View style={mmstyle.details}>
+          <Text>{props.duration}minutes</Text>
+          <Text>{props.complexity.toUpperCase()}</Text>
+          <Text>{props.affordability.toUpperCase()}</Text>
+        </View>
 
-      <Text style={mmstyle.title}>Ingredients</Text>
-      {props.ingredients.map((ingredient) => (
-        <ListItem key={ingredient}>{ingredient}</ListItem>
-      ))}
-      <Text style={mmstyle.title}>Steps</Text>
-      {props.steps.map((step) => (
-        <ListItem key={step}>{step}</ListItem>
-      ))}
+        <Text style={mmstyle.title}>Ingredients</Text>
+        {props.ingredients.map((ingredient) => (
+          <ListItem key={ingredient}>{ingredient}</ListItem>
+        ))}
+        <Text style={mmstyle.title}>Steps</Text>
+        {props.steps.map((step) => (
+          <ListItem key={step}>{step}</ListItem>
+        ))}
 
-      {/* <View>
+        {/* <View>
         <Text>{props.title}</Text>
         <Text>{props.steps}</Text>
       </View> */}
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
