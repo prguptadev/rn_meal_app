@@ -44,7 +44,6 @@ const FilterScreen = (fprops) => {
     // console.log(appliedFilter);
 
     setSavey(isGlutenFree || isLactoseFree || vegan || vegetarian);
-
     dispatch(toggleFilters(appliedFilter));
   }, [dispatch, isGlutenFree, isLactoseFree, vegan, vegetarian]);
 

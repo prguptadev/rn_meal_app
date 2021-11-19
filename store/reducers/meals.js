@@ -38,7 +38,7 @@ const mealsReducers = (state = initialState, action) => {
         }
         return true;
       });
-      console.log("reducre -- ", action.newfilter);
+      // console.log("reducre -- ", action.newfilter);
       return { ...state, filteredMeals: updatedfilteredMeals };
 
     default:

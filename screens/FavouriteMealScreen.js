@@ -56,7 +56,7 @@ const fmstyles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
-    fontFamily: "my-open-sans-bold",
+    fontFamily: "my-open-sans",
     fontSize: 16,
     textAlign: "center",
   },
