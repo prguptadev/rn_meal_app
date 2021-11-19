@@ -85,6 +85,16 @@ const FavNavigator = createStackNavigator(
   }
 );
 
+const FilterNavigator = createStackNavigator(
+  { Filters: FilterScreen },
+  {
+    // navigationOptions: {
+    //   drawerLabel: "Filters!!",
+    // },
+    defaultNavigationOptions: defaultNavConfig,
+  }
+);
+
 const tabScreenConfig = {
   // Meals: MealsNavigator,
   Meals: {
@@ -135,16 +145,6 @@ const MealsFavTabNavigator =
           activeTintColor: MyColors.iconcolor,
         },
       });
-
-const FilterNavigator = createStackNavigator(
-  { Filters: FilterScreen },
-  {
-    // navigationOptions: {
-    //   drawerLabel: "Filters!!",
-    // },
-    defaultNavigationOptions: defaultNavConfig,
-  }
-);
 
 const MainsNavigator = createDrawerNavigator(
   {

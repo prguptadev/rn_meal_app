@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import MealList from "../components/MealList";
 import HeaderButtonss from "../components/HeaderButtonss";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
@@ -8,6 +8,16 @@ import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { useSelector } from "react-redux";
 const FavouriteMealScreen = (fmprops) => {
   const FavMeals = useSelector((state) => state.meals.FavouriteMeals);
+
+  if (FavMeals.length === 0 || !FavMeals) {
+    return (
+      <View style={fmstyles.screen}>
+        <Text style={fmstyles.title} numberOfLines={1}>
+          No favourite meal found, Start add some first!!
+        </Text>
+      </View>
+    );
+  }
 
   //again MEALS replaced by FavMeals
   // const FavMeals = FavMeals.filter((meal) => meal.id === "m1" || meal.id === "m3"); // now this will be taken care in store soo commented
@@ -44,5 +54,10 @@ const fmstyles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  title: {
+    fontFamily: "my-open-sans-bold",
+    fontSize: 16,
+    textAlign: "center",
   },
 });

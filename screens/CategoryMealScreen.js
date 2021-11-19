@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, SafeAreaView, FlatList } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 //import { CATEGORIES, MEALS } from "../data/dummy-data";
 // preiouly above we have MEALs but now we are taking from store so removing
 //now once removed we need to use useSlector /pr collect to get MEals from store
@@ -30,6 +30,7 @@ const CategoryMealScreen = (cmprops) => {
 
   //now getting meal form use selctor hooks
   const availableMeals = useSelector((state) => state.meals.filteredMeals);
+  // console.log(availableMeals);
 
   const catId = cmprops.navigation.getParam("categoryId");
   const selectCat = CATEGORIES.find((cat) => cat.id === catId);
@@ -38,6 +39,15 @@ const CategoryMealScreen = (cmprops) => {
     (meal) => meal.categoryIds.indexOf(catId) >= 0
   );
 
+  if (displayMeals.length === 0 || !displayMeals) {
+    return (
+      <View style={cmstyles.screen}>
+        <Text style={cmstyles.title} numberOfLines={1}>
+          No meal found, Update filter!!
+        </Text>
+      </View>
+    );
+  }
   return (
     <MealList listData={displayMeals} navigation={cmprops.navigation} />
     //here meal item has been render but now it is moved to meallist ..
@@ -84,4 +94,16 @@ const cmstyles = StyleSheet.create({
   //   alignItems: "center",
   //   justifyContent: "center",
   // },
+
+  screen: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  title: {
+    fontFamily: "my-open-sans-bold",
+    fontSize: 16,
+    textAlign: "center",
+  },
 });

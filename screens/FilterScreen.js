@@ -3,6 +3,8 @@ import { View, Text, Switch, StyleSheet, Platform } from "react-native";
 import HeaderButtonss from "../components/HeaderButtonss";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import MyColors from "../constants/MyColors";
+import { useDispatch } from "react-redux";
+import { toggleFilters } from "../store/actions/mealActions";
 
 const FilterSwitch = (props) => {
   return (
@@ -28,21 +30,30 @@ const FilterScreen = (fprops) => {
   const [isLactoseFree, setisLactoseFree] = useState(false);
   const [vegan, setVegan] = useState(false);
   const [vegetarian, setvegetarian] = useState(false);
+  const [savey, setSavey] = useState(false);
 
-  const saveFilters = useCallback(() => {
+  const dispatch = useDispatch();
+
+  const saveFiltersHandler = useCallback(() => {
     const appliedFilter = {
-      glutenfree: isGlutenFree,
-      lactosefree: isLactoseFree,
+      isglutenfree: isGlutenFree,
+      islactosefree: isLactoseFree,
       isvegan: vegan,
-      isVegetarian: vegetarian,
+      isvegetarian: vegetarian,
     };
-    console.log(appliedFilter);
-  }, [isGlutenFree, isLactoseFree, vegan, vegetarian]);
+    // console.log(appliedFilter);
+
+    setSavey(isGlutenFree || isLactoseFree || vegan || vegetarian);
+
+    dispatch(toggleFilters(appliedFilter));
+  }, [dispatch, isGlutenFree, isLactoseFree, vegan, vegetarian]);
+
+  //console.log("sds== ", saveFilters);
 
   useEffect(() => {
     // fprops.navigation.setParams({ save: saveFilters }); // navgation from frops made to directly use it
-    navigation.setParams({ save: saveFilters });
-  }, [saveFilters]);
+    navigation.setParams({ save: saveFiltersHandler, checksave: savey });
+  }, [saveFiltersHandler, savey]);
 
   return (
     <View style={fstyles.screen}>
@@ -85,6 +96,8 @@ const FilterScreen = (fprops) => {
 export default FilterScreen;
 
 FilterScreen.navigationOptions = (navData) => {
+  const togfilter = navData.navigation.getParam("save");
+  const saveicon = navData.navigation.getParam("checksave");
   return {
     headerTitle: "Filter Meal",
     headerLeft: () => (
@@ -99,14 +112,12 @@ FilterScreen.navigationOptions = (navData) => {
       </HeaderButtons>
     ),
     headerRight: () => (
-      <HeaderButtons
-        HeaderButtonComponent={HeaderButtonss}
-        color={MyColors.tabmealcolor}
-      >
+      <HeaderButtons HeaderButtonComponent={HeaderButtonss}>
         <Item
           title="save"
           iconName="ios-save"
-          onPress={navData.navigation.getParam("save")}
+          color={saveicon ? MyColors.iconcolor : MyColors.favIconColor}
+          onPress={togfilter}
         />
       </HeaderButtons>
     ),

@@ -6,10 +6,10 @@ import MyColors from "../constants/MyColors";
 const HeaderButtonss = (props) => {
   return (
     <HeaderButton
-      {...props}
       IconComponent={Ionicons}
       iconSize={23}
       color={MyColors.favIconColor}
+      {...props}
     />
   );
 };
