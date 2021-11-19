@@ -5,4 +5,5 @@ export default {
   tabmealcolor: "#f457f8",
   tabfavcolor: "#360f",
   Switchcolor: "#4C1FDE",
+  favIconColor: "#343233",
 };

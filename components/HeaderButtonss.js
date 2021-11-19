@@ -9,7 +9,7 @@ const HeaderButtonss = (props) => {
       {...props}
       IconComponent={Ionicons}
       iconSize={23}
-      color={MyColors.iconcolor}
+      color={MyColors.favIconColor}
     />
   );
 };

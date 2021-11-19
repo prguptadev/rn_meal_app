@@ -1,10 +1,16 @@
 import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-navigation";
+import { useSelector } from "react-redux";
 import MealItems from "../components/MealItems";
 
 const MealList = (mlprops) => {
+  const favMeals = useSelector((state) => state.meals.FavouriteMeals); // rather than in mealdetails making icon chnage for fav
+  // here checking fav and apssing some function with true and false value
   const renderMealItems = (itemData) => {
+    const isFavorite = favMeals.some(
+      (mealss) => mealss.id === itemData.item.id
+    );
     return (
       <MealItems
         title={itemData.item.title}
@@ -16,6 +22,7 @@ const MealList = (mlprops) => {
           mlprops.navigation.navigate("MealDetail", {
             mealId: itemData.item.id,
             mealTitle: itemData.item.title,
+            isFav: isFavorite,
           })
         }
       />

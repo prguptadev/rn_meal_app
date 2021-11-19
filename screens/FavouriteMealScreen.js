@@ -8,6 +8,7 @@ import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { useSelector } from "react-redux";
 const FavouriteMealScreen = (fmprops) => {
   const FavMeals = useSelector((state) => state.meals.FavouriteMeals);
+
   //again MEALS replaced by FavMeals
   // const FavMeals = FavMeals.filter((meal) => meal.id === "m1" || meal.id === "m3"); // now this will be taken care in store soo commented
   return (

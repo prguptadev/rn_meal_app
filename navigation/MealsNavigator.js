@@ -78,7 +78,7 @@ const MealsNavigator = createStackNavigator(
 const FavNavigator = createStackNavigator(
   {
     FavouriteMeal: FavouriteMealScreen,
-    MealDetails: MealDetailScreen,
+    MealDetail: MealDetailScreen,
   },
   {
     defaultNavigationOptions: defaultNavConfig,
@@ -100,7 +100,7 @@ const tabScreenConfig = {
       // tabBarLabel: "Meals!",
       tabBarLabel:
         Platform.OS === "android" ? (
-          <Text style={{ color: "green" }}>Meals</Text>
+          <Text style={{ color: "black" }}>Meals</Text>
         ) : (
           "Meals!"
         ),
